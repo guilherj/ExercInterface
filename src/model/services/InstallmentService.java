@@ -9,10 +9,13 @@ import model.entities.Installment;
 public class InstallmentService {
 
 	private Integer numberInstallment;
+	
+	private OnlinePaymentService onlinePayment;
 
 	
-	public InstallmentService(Integer numberInstallment) {
+	public InstallmentService(Integer numberInstallment, OnlinePaymentService onlinePayment) {
 		this.numberInstallment = numberInstallment;
+		this.onlinePayment = onlinePayment;
 
 	}
 
@@ -27,8 +30,7 @@ public class InstallmentService {
 			cal.add(Calendar.MONTH, i);
 			date = cal.getTime();
 			
-			OnlinePaymentService onlinePayment = new Paypal();
-					
+								
 			Installment installment = new Installment(date, onlinePayment.taxService(parcelValue, i));
 			contract.addInstallment(installment);
 

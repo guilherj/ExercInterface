@@ -8,6 +8,7 @@ import java.util.Scanner;
 import model.entities.Contract;
 import model.entities.Installment;
 import model.services.InstallmentService;
+import model.services.Paypal;
 
 public class Program {
 
@@ -35,7 +36,7 @@ public class Program {
 
 		Contract contract = new Contract(numberContract, dateContract, totalValue);
 
-		InstallmentService installmentService = new InstallmentService(plots);
+		InstallmentService installmentService = new InstallmentService(plots, new Paypal());
 		installmentService.plotGenerator(contract);
 
 		contract.sumary();
