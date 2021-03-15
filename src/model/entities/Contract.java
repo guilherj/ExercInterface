@@ -64,14 +64,14 @@ public class Contract {
 		System.out.println();
 		System.out.println(".::SUMARY OF CONTRACT::.");
 		System.out.println("Number: " + this.number);
-		System.out.println("Total value: " + this.totalValue);
+		System.out.println("Total value: " + String.format("%.2f", this.totalValue));
 		System.out.println("Date of Contract: " + sdf.format(dateContract));
 		
 		System.out.println();
 		System.out.println(">>Installments<<");
 		
 		for(Installment i: installments) {
-		System.out.println(sdf.format(i.getDueDate()) + " - R$" + i.getValue());
+		System.out.println(sdf.format(i.getDueDate()) + " - R$ " + String.format("%.2f",i.getValue()));
 		}
 	}
 

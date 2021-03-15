@@ -24,8 +24,7 @@ public class Program {
 
 		System.out.print("Date (dd/mm/yyyy): ");
 		teclado.nextLine();
-		String dateString = teclado.nextLine();
-		Date dateContract = sdf.parse(dateString);
+		Date dateContract = sdf.parse(teclado.next());
 
 		System.out.print("Contract value: ");
 
